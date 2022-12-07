@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.commandGroups;
+package org.firstinspires.ftc.teamcode.commandGroups.slideCommands;
 
 import com.arcrobotics.ftclib.command.CommandBase;
 import com.arcrobotics.ftclib.gamepad.GamepadEx;

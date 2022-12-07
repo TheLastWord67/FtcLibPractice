@@ -4,7 +4,7 @@ import com.arcrobotics.ftclib.command.CommandOpMode;
 import com.arcrobotics.ftclib.gamepad.GamepadEx;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.commandGroups.DriveCommand;
-import org.firstinspires.ftc.teamcode.commandGroups.SlideManualCommand;
+import org.firstinspires.ftc.teamcode.commandGroups.slideCommands.SlideManualCommand;
 import org.firstinspires.ftc.teamcode.subsystems.DriveSubsystem;
 import org.firstinspires.ftc.teamcode.subsystems.SlideSusbsytem;
 

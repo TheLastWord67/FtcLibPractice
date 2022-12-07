@@ -6,10 +6,14 @@ import com.arcrobotics.ftclib.gamepad.GamepadEx;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+
+import org.firstinspires.ftc.teamcode.commandGroups.OuttakeCommand;
 import org.firstinspires.ftc.teamcode.commandGroups.roadrunnerCommands.FirstBranch;
 import org.firstinspires.ftc.teamcode.commandGroups.roadrunnerCommands.ParkCommand;
+import org.firstinspires.ftc.teamcode.commandGroups.roadrunnerCommands.SecondBranch;
 import org.firstinspires.ftc.teamcode.commandGroups.roadrunnerCommands.TrajToDumpCommand;
 import org.firstinspires.ftc.teamcode.subsystems.AprilTagDetectionPipeline;
+import org.firstinspires.ftc.teamcode.subsystems.IntakeSubsytem;
 import org.firstinspires.ftc.teamcode.subsystems.SlideSusbsytem;
 import org.firstinspires.ftc.teamcode.subsystems.Webcam;
 import org.openftc.apriltag.AprilTagDetection;
@@ -42,6 +46,8 @@ public class AutoInCommands extends LinearOpMode {
     GamepadEx gamepadEx = new GamepadEx(gamepad2);
 
     SlideSusbsytem slide = new SlideSusbsytem(hardwareMap, gamepadEx);
+
+    IntakeSubsytem intake = new IntakeSubsytem(hardwareMap);
 
     @Override
     public void runOpMode() {
@@ -127,9 +133,10 @@ public class AutoInCommands extends LinearOpMode {
         cameraInit.cvWebcam.stopStreaming();
 
 
-        CommandScheduler.getInstance().schedule( new SequentialCommandGroup(
+        CommandScheduler.getInstance().schedule( new SequentialCommandGroup (
                 new FirstBranch(hardwareMap, slide),
-                new ParkCommand(hardwareMap, fTag)
+                new OuttakeCommand(intake),
+                new SecondBranch(hardwareMap, slide, fTag)
                 )
         );
 

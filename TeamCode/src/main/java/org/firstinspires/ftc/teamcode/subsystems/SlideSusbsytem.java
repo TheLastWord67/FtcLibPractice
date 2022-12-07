@@ -48,4 +48,12 @@ public class SlideSusbsytem extends SubsystemBase {
         }
     }
 
+    public double getCurrentPosition() {
+        return slide.getCurrentPosition();
+    }
+
+    public double getTarget() {
+        return p.getSetPoint();
+    }
+
 }

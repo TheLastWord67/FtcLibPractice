@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.commandGroups;
+package org.firstinspires.ftc.teamcode.commandGroups.slideCommands;
 
 import com.arcrobotics.ftclib.command.CommandBase;
 import org.firstinspires.ftc.teamcode.subsystems.SlideSusbsytem;
@@ -13,9 +13,18 @@ public class SlideDownCommand extends CommandBase {
     }
 
     @Override
-    public void execute() {
+    public void initialize() {
         s_subsystem.lower();
+    }
+
+    @Override
+    public void execute() {
         s_subsystem.updatePID();
+    }
+
+    @Override
+    public boolean isFinished() {
+        return Math.abs(s_subsystem.getTarget() - s_subsystem.getCurrentPosition()) <= 10;
     }
 
 }
