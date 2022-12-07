@@ -2,11 +2,13 @@ package org.firstinspires.ftc.teamcode.opModes;
 
 import com.arcrobotics.ftclib.command.CommandOpMode;
 import com.arcrobotics.ftclib.gamepad.GamepadEx;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.commandGroups.DriveCommand;
 import org.firstinspires.ftc.teamcode.commandGroups.SlideManualCommand;
 import org.firstinspires.ftc.teamcode.subsystems.DriveSubsystem;
 import org.firstinspires.ftc.teamcode.subsystems.SlideSusbsytem;
 
+@TeleOp (name = "Command Teleop: No modifiers", group = "Command Based")
 public class CommandsOpMode extends CommandOpMode {
 
     public DriveSubsystem d_subsystem;

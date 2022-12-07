@@ -26,6 +26,10 @@ public class SlideSusbsytem extends SubsystemBase {
         p.setSetPoint(-2827);
     }
 
+    public void run_to_med() {
+        p.setSetPoint(-2030);
+    }
+
     public void lower() {
        p.setSetPoint(0);
     }
