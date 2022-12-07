@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
     // taken from ftc library thing adam sent ->> used to code mecanum but need to import meanings
    /* MecanumDrive mecanum = new MecanumDrive(frontLeft, frontRight,
-            backLeft, backRight); */
+            backLeft, backRight);  */
 @TeleOp
 public class drive extends OpMode {
 
