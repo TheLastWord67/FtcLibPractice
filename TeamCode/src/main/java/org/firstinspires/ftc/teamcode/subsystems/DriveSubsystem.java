@@ -24,7 +24,7 @@ public class DriveSubsystem extends SubsystemBase {
 
     GamepadEx controller;
 
-    public DriveSubsystem (HardwareMap hardware) {
+    public DriveSubsystem (HardwareMap hardware, GamepadEx gamepad1) {
         fL = new MotorEx(hardware, "front_left");
         fR = new MotorEx(hardware, "front_right");
         bL = new MotorEx(hardware, "back_left");
@@ -42,19 +42,18 @@ public class DriveSubsystem extends SubsystemBase {
         m_drive = new MecanumDrive(fL, fR, bL, bR);
     }
 
-    public void driveFC(GamepadEx gamepad1) {
-        controller = gamepad1;
-        m_drive.driveFieldCentric(controller.getLeftX(),
-                controller.getRightY(),
-                controller.getRightX(),
+    public void driveFC() {
+        m_drive.driveFieldCentric(
+                controller.getLeftX()*0.6,
+                controller.getRightY()*0.6,
+                controller.getRightX()*0.6,
                 -imu.getAngularOrientation().firstAngle);
     }
 
-    public void driveRC(GamepadEx gamepad1) {
-        controller = gamepad1;
-        m_drive.driveRobotCentric(controller.getLeftX(),
-                controller.getRightY(),
-                controller.getRightX());
+    public void driveRC() {
+        m_drive.driveRobotCentric(controller.getLeftX()*0.6,
+                controller.getRightY()*0.6,
+                controller.getRightX()*0.6);
     }
 
 }
