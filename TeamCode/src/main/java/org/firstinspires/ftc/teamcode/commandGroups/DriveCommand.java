@@ -8,17 +8,16 @@ import java.util.function.DoubleSupplier;
 
 public class DriveCommand extends CommandBase {
 
-    private DriveSubsystem d_subsystem;
-    GamepadEx gamepadEx;
+    private final DriveSubsystem d_subsystem;
 
-    public DriveCommand (DriveSubsystem driveSubsystem, GamepadEx gamepad1) {
+    public DriveCommand (DriveSubsystem driveSubsystem) {
         d_subsystem = driveSubsystem;
-        gamepadEx = gamepad1;
         addRequirements(d_subsystem);
     }
 
     @Override
     public void execute() {
-        d_subsystem.driveFC(gamepadEx);
+        d_subsystem.driveFC();
+        //I am hot
     }
 }
