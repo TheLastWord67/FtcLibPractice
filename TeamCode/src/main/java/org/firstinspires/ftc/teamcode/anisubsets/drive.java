@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.anisubsets;
 import com.arcrobotics.ftclib.drivebase.MecanumDrive;
 import com.arcrobotics.ftclib.gamepad.GamepadEx;
+import com.arcrobotics.ftclib.hardware.motors.Motor;
 import com.arcrobotics.ftclib.hardware.motors.MotorEx;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -18,7 +19,10 @@ public class drive extends OpMode {
     @Override
     public void init() {
         /* instantiate motors */
-
+        fL = new MotorEx(hardwareMap, "front_left");
+        fR = new MotorEx(hardwareMap, "front_right");
+        bL = new MotorEx(hardwareMap, "back_left");
+        bR = new MotorEx(hardwareMap, "back_right");
         drive = new MecanumDrive(fL, fR, bL, bR);
         driverOp = new GamepadEx(gamepad1);
     }
