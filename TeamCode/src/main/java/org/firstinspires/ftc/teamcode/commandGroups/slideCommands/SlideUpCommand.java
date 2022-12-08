@@ -19,8 +19,7 @@ public class SlideUpCommand extends CommandBase {
 
     @Override
     public void execute() {
-        s_subsystem.run_to_high();
-        s_subsystem.updatePID();
+        s_subsystem.setPower(0.7);
     }
 
     @Override

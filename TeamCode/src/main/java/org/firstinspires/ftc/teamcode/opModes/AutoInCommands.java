@@ -136,7 +136,7 @@ public class AutoInCommands extends LinearOpMode {
         CommandScheduler.getInstance().schedule( new SequentialCommandGroup (
                 new FirstBranch(hardwareMap, slide),
                 new OuttakeCommand(intake),
-                new SecondBranch(hardwareMap, slide, fTag)
+                new SecondBranch(hardwareMap, slide, intake, fTag)
                 )
         );
 

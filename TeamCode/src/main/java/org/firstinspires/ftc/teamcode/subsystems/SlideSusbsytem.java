@@ -6,45 +6,40 @@ import com.arcrobotics.ftclib.controller.PController;
 import com.arcrobotics.ftclib.gamepad.GamepadEx;
 import com.arcrobotics.ftclib.hardware.motors.Motor;
 import com.arcrobotics.ftclib.hardware.motors.MotorEx;
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 @Config
 public class SlideSusbsytem extends SubsystemBase {
 
-    MotorEx slide;
-
-    PController p = new PController(0.05);
+    DcMotor slide;
 
     GamepadEx gamepadEx;
 
     public SlideSusbsytem(HardwareMap hardware, GamepadEx gamepad2) {
-        slide = new MotorEx(hardware, "slider");
+        slide = hardware.dcMotor.get("slider");
+        slide.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         gamepadEx = gamepad2;
     }
 
     public void run_to_high() {
-        p.setSetPoint(-2827);
+        slide.setTargetPosition(-2827);
     }
 
     public void run_to_med() {
-        p.setSetPoint(-2030);
+        slide.setTargetPosition(-2030);
     }
 
     public void lower() {
-       p.setSetPoint(0);
+       slide.setTargetPosition(0);
     }
 
-
-    public void updatePID() {
-        double out = p.calculate(slide.getCurrentPosition(), p.getSetPoint());
-        slide.set(-out);
-    }
 
     public void manual() {
         if ((slide.getCurrentPosition() < -41 && gamepadEx.getRightY() > 0.1) || (slide.getCurrentPosition() > -2827 && gamepadEx.getRightY() < -0.1)) {
-            slide.set(gamepadEx.getRightY()*0.6);
+            slide.setPower(gamepadEx.getRightY()*0.6);
         } else {
-            slide.set(0);
+            slide.setPower(0);
         }
     }
 
@@ -53,7 +48,11 @@ public class SlideSusbsytem extends SubsystemBase {
     }
 
     public double getTarget() {
-        return p.getSetPoint();
+        return slide.getTargetPosition();
+    }
+
+    public void setPower(double power) {
+        slide.setPower(power);
     }
 
 }

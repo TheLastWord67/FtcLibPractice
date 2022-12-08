@@ -19,7 +19,7 @@ public class SlideMidCommand extends CommandBase {
 
     @Override
     public void execute() {
-        s_subsystem.updatePID();
+        s_subsystem.setPower(0.7);
     }
 
     @Override
