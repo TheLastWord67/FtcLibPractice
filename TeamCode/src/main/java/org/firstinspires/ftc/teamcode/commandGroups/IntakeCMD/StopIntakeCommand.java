@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.commandGroups;
+package org.firstinspires.ftc.teamcode.commandGroups.IntakeCMD;
 
 import com.arcrobotics.ftclib.command.CommandBase;
 import org.firstinspires.ftc.teamcode.subsystems.IntakeSubsytem;

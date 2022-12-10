@@ -5,13 +5,11 @@ import com.arcrobotics.ftclib.command.SequentialCommandGroup;
 import com.arcrobotics.ftclib.gamepad.GamepadEx;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
-import org.firstinspires.ftc.teamcode.commandGroups.OuttakeCommand;
+import org.firstinspires.ftc.teamcode.commandGroups.IntakeCMD.OuttakeCommand;
+import org.firstinspires.ftc.teamcode.commandGroups.WaitCommand;
 import org.firstinspires.ftc.teamcode.commandGroups.roadrunnerCommands.FirstBranch;
-import org.firstinspires.ftc.teamcode.commandGroups.roadrunnerCommands.ParkCommand;
 import org.firstinspires.ftc.teamcode.commandGroups.roadrunnerCommands.SecondBranch;
-import org.firstinspires.ftc.teamcode.commandGroups.roadrunnerCommands.TrajToDumpCommand;
 import org.firstinspires.ftc.teamcode.subsystems.AprilTagDetectionPipeline;
 import org.firstinspires.ftc.teamcode.subsystems.IntakeSubsytem;
 import org.firstinspires.ftc.teamcode.subsystems.SlideSusbsytem;
@@ -136,6 +134,7 @@ public class AutoInCommands extends LinearOpMode {
         CommandScheduler.getInstance().schedule( new SequentialCommandGroup (
                 new FirstBranch(hardwareMap, slide),
                 new OuttakeCommand(intake),
+                new WaitCommand(1.5),
                 new SecondBranch(hardwareMap, slide, intake, fTag)
                 )
         );

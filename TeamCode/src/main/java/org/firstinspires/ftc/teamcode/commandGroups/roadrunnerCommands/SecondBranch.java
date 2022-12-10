@@ -1,11 +1,9 @@
 package org.firstinspires.ftc.teamcode.commandGroups.roadrunnerCommands;
 
-import com.arcrobotics.ftclib.command.CommandBase;
 import com.arcrobotics.ftclib.command.ParallelCommandGroup;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
-import org.firstinspires.ftc.teamcode.commandGroups.StopIntakeCommand;
-import org.firstinspires.ftc.teamcode.commandGroups.StopIntakeCommand;
+import org.firstinspires.ftc.teamcode.commandGroups.IntakeCMD.StopIntakeCommand;
 import org.firstinspires.ftc.teamcode.commandGroups.slideCommands.SlideDownCommand;
 import org.firstinspires.ftc.teamcode.subsystems.IntakeSubsytem;
 import org.firstinspires.ftc.teamcode.subsystems.SlideSusbsytem;

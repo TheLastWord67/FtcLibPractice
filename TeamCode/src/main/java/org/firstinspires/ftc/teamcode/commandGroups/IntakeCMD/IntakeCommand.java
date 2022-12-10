@@ -1,22 +1,21 @@
-package org.firstinspires.ftc.teamcode.commandGroups;
+package org.firstinspires.ftc.teamcode.commandGroups.IntakeCMD;
 
 import com.arcrobotics.ftclib.command.CommandBase;
-import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.subsystems.IntakeSubsytem;
 
-public class OuttakeCommand extends CommandBase {
+public class IntakeCommand extends CommandBase {
 
     private final IntakeSubsytem i_subsystem;
 
-    public OuttakeCommand(IntakeSubsytem it) {
-        i_subsystem = it;
+    public IntakeCommand(IntakeSubsytem intake) {
+        i_subsystem = intake;
         addRequirements(i_subsystem);
     }
 
     @Override
     public void initialize() {
-        i_subsystem.out();
+        i_subsystem.intake();
     }
 
     @Override
