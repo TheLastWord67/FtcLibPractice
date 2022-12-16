@@ -23,8 +23,8 @@ public class IntakeSubsytem extends SubsystemBase {
     }
 
     public void out() {
-        servo1.setPower(-0.5);
-        servo2.setPower(-0.5);
+        servo1.setPower(0.2);
+        servo2.setPower(0.2);
     }
 
     public void nuetral() {

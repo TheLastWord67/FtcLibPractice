@@ -18,20 +18,26 @@ public class SlideSusbsytem extends SubsystemBase {
 
     public SlideSusbsytem(HardwareMap hardware, GamepadEx gamepad2) {
         slide = hardware.dcMotor.get("slider");
-        slide.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        slide.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         gamepadEx = gamepad2;
     }
 
     public void run_to_high() {
         slide.setTargetPosition(-2827);
+        slide.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        slide.setPower(0.7);
     }
 
     public void run_to_med() {
         slide.setTargetPosition(-2030);
+        slide.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        slide.setPower(0.7);
     }
 
     public void lower() {
        slide.setTargetPosition(0);
+        slide.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        slide.setPower(0.7);
     }
 
 

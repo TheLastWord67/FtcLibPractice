@@ -50,7 +50,7 @@ public class AutoInCommands extends LinearOpMode {
     @Override
     public void runOpMode() {
         cameraInit.webcamOnly(hardwareMap, this);
-
+        telemetry.addLine("Init Successful!");
         aprilTagDetectionPipeline = new AprilTagDetectionPipeline(tagsize, fx, fy, cx, cy);
 
         cameraInit.cvWebcam.setPipeline(aprilTagDetectionPipeline);
@@ -134,7 +134,7 @@ public class AutoInCommands extends LinearOpMode {
         CommandScheduler.getInstance().schedule( new SequentialCommandGroup (
                 new FirstBranch(hardwareMap, slide),
                 new OuttakeCommand(intake),
-                new WaitCommand(1.5),
+                new WaitCommand(0.5),
                 new SecondBranch(hardwareMap, slide, intake, fTag)
                 )
         );
